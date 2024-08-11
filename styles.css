@@ -1,0 +1,309 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-color: #121212; 
+    color: white; 
+}
+
+/* Page Layout */
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 4fr 1fr ; /* Sidebar, Main content, Right sidebar */
+    grid-template-areas: 
+        "sidebar top-bar top-bar"
+        "sidebar project-holder right-sidebar";
+    box-sizing: border-box;
+}
+
+/* Sidebar */
+#sidebar {
+    grid-area: sidebar;
+    background-color: #1a1f29;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Sidebar Link Styling */
+#sidebar a {
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    font-size: 20px;
+    padding: 10px 0;
+    transition: color 0.3s ease;
+    margin-bottom: 15px; 
+}
+
+
+
+/* Sidebar Icon Styling */
+#sidebar img {
+    margin-right: 15px;
+    width: 24px;
+    height: 24px;
+}
+
+#sidebar a:hover {
+    color: #ff6600;
+}
+
+.dashboard {
+    font-size: 2rem;
+    margin-bottom: 30px;
+}
+
+.main-sidebar, .secondary-sidebar {
+    margin-bottom: 20px;
+}
+
+/* Top Bar */
+#top-bar {
+    grid-area: top-bar;
+    background-color: #1a1f29;
+    padding: 20px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Search and Profile ID Styling */
+#top-div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+#search {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-radius: 25px;
+    background-color: #2a2f3a;
+}
+
+#search input {
+    width: 500px;
+    max-width: 500px;
+    margin-left: 15px;
+    border: none;
+    background-color: transparent;
+    color: white;
+    padding: 10px;
+}
+
+#search input::placeholder {
+    color: #a0a4b0;
+}
+
+#profile-id {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+#profile-id p {
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.profile-id-logo {
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+}
+
+/* Profile Welcome and Buttons */
+#bottom-div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#profile-welcome {
+    display: flex;
+    align-items: center;
+}
+
+#profile-welcome p {
+    margin: 0;
+}
+
+#profile-name {
+    font-size: 1.5rem;
+    font-weight: 900;
+    margin-left: 15px;
+}
+
+#profile-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+#profile-buttons button {
+    width: 90px;
+    height: 40px;
+    border: none;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: bolder;
+    color: white;
+    background-color: #ff6600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#profile-buttons button:hover {
+    background-color: #ff8533;
+}
+
+/* Project Holder */
+#project-holder {
+    grid-area: project-holder;
+    background-color: #1a1a1a;
+    padding: 20px;
+    gap: 20px;
+}
+
+/* Projects */
+#card-projects {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.project {
+    background-color: #2a2f3a;
+    border-radius: 15px;
+    padding: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.project:hover {
+    background-color: #404857;
+}
+
+.project h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.project p {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* Right Sidebar */
+#right-sidebar {
+    grid-area: right-sidebar;
+    background-color: #1a1a1a;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    overflow-y: auto;
+}
+
+#announcements, #trending {
+    background-color: #2a2f3a;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+#announcements h2, #trending h2 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}
+
+#announcements h3, #trending div p {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+#announcements p, #trending div p {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+#trending {
+    text-align: left;
+    margin-bottom: 15px;
+
+}
+
+#trending div img {
+    margin-right: 10px;
+
+}
+
+#trending a {
+    color: white;
+    text-decoration: none;
+}
+
+.handle{
+    color: orange;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+            "top-bar"
+            "sidebar"
+            "card-holder"
+            "right-sidebar";
+    }
+
+    #top-bar {
+        grid-template-rows: auto;
+    }
+
+    #project-holder {
+        grid-template-columns: 1fr;
+    }
+
+    #search input {
+        max-width: 100%;
+    }
+
+    #profile-id {
+        justify-content: center;
+    }
+
+    #bottom-div {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    #profile-buttons {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    #top-div {
+        flex-direction: column;
+        display: none
+    }
+
+    #search {
+        width: 100%;
+    }
+
+    #profile-id p, #profile-name {
+        font-size: 1.2rem;
+    }
+
+    #profile-buttons button {
+        width: 80px;
+        height: 35px;
+        font-size: 0.8rem;
+    }
+}
